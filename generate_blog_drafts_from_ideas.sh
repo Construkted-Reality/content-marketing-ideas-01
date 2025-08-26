@@ -28,9 +28,12 @@ for idea_file in $SOURCE_FOLDER/*.md; do
     idea_content=$(cat "$idea_file")
     context_content=$(cat context.md)
 
-    system_prompt="Reasoning: high ,  extra context $context_content"
+    system_prompt="Reasoning: high ,  extra context $context_content \
+    You are an author narrating events based on the provided prompt below.  Each section of events should be narrated in the third person limited perspective. \
+    The language should be straightforward and to the point. "
+    
     prompt="Using Construkted Reality's content marketing strategy, create a full blog post using the following draft: $idea_content. \
-    Use all URLs listed in the SOURCE section for context. \
+    Visit all URLs listed in the SOURCE section and use for context. \
     Display the sources used in the response. \
     Focus on validating the user pain point hand take every opportunity to mentioning our product Construkted Reality. \
     For images, create numeric placeholders in the body of the post, and at the bottom of the post create an **Image Prompt Summary** section where the detailed prompts specified. Image generation prompts will be used in an llm for image generation. \
@@ -48,9 +51,9 @@ for idea_file in $SOURCE_FOLDER/*.md; do
     response=$(curl -s -X POST "$OLLAMA_URL" -d "$JSON_PAYLOAD" | jq -r '.response')
     
     # Save the response
-    #echo "$response" > "$DESTINATION_FOLDER/$(basename "$idea_file")"
-    echo $JSON_PAYLOAD
-    echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \n"
-    echo "$response"
+    echo "$response" > "$DESTINATION_FOLDER/$(basename "$idea_file")"
+    #echo $JSON_PAYLOAD
+    #echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \n"
+    #echo "$response"
 
 done
