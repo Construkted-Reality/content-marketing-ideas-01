@@ -3,7 +3,8 @@
 # --- Configuration ---
 DEFAULT_OLLAMA_HOST="192.168.8.90"
 #DEFAULT_MODEL="qwen3:30b-a3b-thinking-2507-fp16"
-DEFAULT_MODEL="gpt-oss:120b"
+#DEFAULT_MODEL="gpt-oss:120b"
+DEFAULT_MODEL="gpt-oss-120b-CTX28k"
 
 SOURCE_FOLDER="blog_post_ideas"
 DESTINATION_FOLDER="blog_post_drafts"
@@ -52,14 +53,16 @@ for idea_file in $SOURCE_FOLDER/*.md; do
     echo "[$current/$total_files] Processing $(basename "$idea_file")"
     idea_content=$(cat "$idea_file")
     context_content=$(cat context.md)
+    writing_guidance=$(cat writing_guidance.md)
 
     for voice_name in "${voices[@]}"; do
         voice_content=${voice_definitions[$voice_name]}
-        voice_prompt="Write in the voice of a seasoned journalist at $voice_content"
-        system_prompt="Reasoning: high, extra context $context_content. Writing Style should be: $voice_prompt. $formatting_rules"
+        voice_prompt="Write in the voice of a seasoned journalist at $voice_content"    
+
+        system_prompt="Reasoning: high, extra context $context_content. Writing Style should be: $voice_prompt. $formatting_rules. Extra writing guidance: $writing_guidance."
 
         prompt="Using Construkted Reality's content marketing strategy, create a full blog post using the following draft: $idea_content. \
-        Visit all URLs listed in the SOURCE section and use for context. \
+        Visit all URLs listed in the SOURCE section read their content carefully and use the content at the URLs to extract the pain points, and use the content to guide the writing of the blog post content. \
         Display the sources used in the response. \
         Focus on validating the user pain point hand take every opportunity to mentioning our product Construkted Reality. \
         For images, create numeric placeholders in the body of the post, and at the bottom of the post create an **Image Prompt Summary** section where the detailed prompts specified. Image generation prompts will be used in an llm for image generation. \
@@ -76,13 +79,15 @@ for idea_file in $SOURCE_FOLDER/*.md; do
         OLLAMA_URL="http://${DEFAULT_OLLAMA_HOST}:11434/api/generate"
         response=$(curl -s -X POST "$OLLAMA_URL" -d "$JSON_PAYLOAD" | jq -r '.response')
         
+        #echo $JSON_PAYLOAD
+        #echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \n"
+
         # Save the response
         output_filename="${DESTINATION_FOLDER}/$(basename "$idea_file" .md)_$voice_name.md"
         echo "$response" > "$output_filename"
     done
 done
-    #echo $JSON_PAYLOAD
-    #echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \n"
+
     #echo "$response"
 
-done
+#done
