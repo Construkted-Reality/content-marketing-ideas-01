@@ -28,12 +28,10 @@ Below we unpack why this familiar habit is a silent project killer, put numbers 
 
 ### The True Cost: From Lost IP to Project Delays  
 
-| Impact | Rough Estimate* |
-|--------|-----------------|
-| **Rework due to version mismatch** | 12‑18 hours per major change |
-| **Data breach remediation** | $150 k – $2 M (legal, PR, lost contracts) |
-| **Lost productivity from manual transfers** | $45 k per 5‑person team per month |
-| **Missed deadlines** | 1‑2 weeks per phase, cascading cost |
+- Rework due to version mismatch: 12‑18 hours per major change
+- Data breach remediation: $150 k – $2 M (legal, PR, lost contracts)
+- Lost productivity from manual transfers: $45 k per 5‑person team per month
+- Missed deadlines: 1‑2 weeks per phase, cascading cost
 
 \*Based on industry surveys (Reddit r/gis threads) and typical consulting rates.  
 
@@ -107,4 +105,4 @@ If you’re still clicking “Send” on a 2 GB CAD file, you’re betting you
 3. *A stylized bar chart visualizing cost impact: “Rework Hours,” “Data Breach,” “Lost Productivity,” each with a bold numeric label, overlaid on a faint blueprint background.*  
 4. *A step‑by‑step roadmap graphic, four icons representing “Audit,” “Pilot,” “Governance,” “Roll‑out,” connected by arrows, set against a digital globe motif.*  
 
-These prompts are ready for an LLM‑based image generator to create visual assets that reinforce the blog’s message.  
+These prompts are ready for an LLM‑based image generator to create visual assets that reinforce the blog’s message.

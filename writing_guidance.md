@@ -1,4 +1,4 @@
-How I want you to write
+### How I want you to write
 I'm gonna write something technical.
 
 It's often less about the nitty-gritty details of the tech stuff and more about learning something new or getting a solution handed to me on a silver platter.
@@ -7,10 +7,10 @@ Look, when I read, I want something out of it. So when I write, I gotta remember
 
 I'm gonna lay out a checklist of stuff I'd like to have. It'll make the whole writing gig a bit smoother, you know?
 
-Crafting Compelling Titles
+### Crafting Compelling Titles
 I often come across titles like "How to do X with Y,Z technology." These don't excite me because X or Y are usually unfamiliar unless they're already well-known. Its rarely the dream to use X unless X is the dream.
 
-My dream isn’t to use instructor, its to do something valueble with the data it extracts
+My dream isn’t to use instructor, its to do something valuable with the data it extracts
 
 An effective title should:
 
@@ -33,11 +33,13 @@ This approach ultimately trains the reader to have a stronger emotional connecti
 "How You Can do X"
 Between these two titles, it's obvious which one resonates more emotionally.
 
-You can take it further by adding specific conditions. For instance, you could target a particular audience or set a timeframe:
 
-How to set up Braintrust
-How to set up Braintrust in 5 minutes
-NO adjectiives
+
+**Avoid click‑bait titles.**  
+> Titles must be truthful, specific, and reflect the actual content of the article. Do not use exaggerated promises, sensational language, or phrasing that misleads the reader (e.g., “You Won’t Believe…”, “The Secret to …”, “X Ways to Instantly …”). The title should accurately convey the value and focus of the piece without resorting to hype.
+
+
+### NO adjectives
 I want you to almost always avoid adjectives and try to use evidence instead. Instead of saying "production ready," you can write something like "scaling this to 100 servers or 1 million documents per second." Numbers like that will tell you exactly what the specificity of your product is. If you have to use adjectives rather than evidence, you are probably making something up.
 
 There's no reason to say something like "blazingly fast" unless those things are already known phrases.
