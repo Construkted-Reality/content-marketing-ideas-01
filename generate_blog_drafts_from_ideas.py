@@ -129,12 +129,23 @@ Output ONLY the JSON object above with your selections."""
         "stream": False,
     }
     result = post_ollama(payload)
-    response_text = result.get("response", "")
+    response_text = result.get("response", "").strip()
+
+    # Try direct parsing first
     try:
         return json.loads(response_text)
     except json.JSONDecodeError:
-        sys.stderr.write("Failed to parse JSON from first OLLAMA response.\n")
-        sys.exit(1)
+        # Fallback: extract the longest {...} block using regex
+        match = re.search(r'\{.*\}', response_text, re.DOTALL)
+        if not match:
+            sys.stderr.write("Failed to locate JSON object in OLLAMA response.\n")
+            sys.exit(1)
+        json_candidate = match.group(0)
+        try:
+            return json.loads(json_candidate)
+        except json.JSONDecodeError as exc:
+            sys.stderr.write(f"JSON parsing error after regex extraction: {exc}\\n")
+            sys.exit(1)
 
 
 def generate_blog_post(
@@ -238,8 +249,8 @@ def main() -> None:
 
         # Echo selected parameters (mirrors Bash script output)
         print("  Selected parameters:")
-        for key in ["voice", "piece_type", "primary_goal", "target_audience",
-                    "technical_depth", "justification", "pain_point"]:
+        #for key in ["voice", "piece_type", "primary_goal", "target_audience", "technical_depth", "justification", "pain_point"]:        
+        for key in ["voice", "piece_type", "primary_goal", "target_audience", "technical_depth"]:
             print(f"    {key.replace('_', ' ').title()}: {selected.get(key, '')}")
 
         # --- Second API call -----------------------------------------------
@@ -251,8 +262,7 @@ def main() -> None:
         )
 
         # Append metadata
-        metadata = f"""
-
+        metadata = f""" 
 ---
 ### Content Creation Metadata
 - **Voice**: {selected['voice']}
