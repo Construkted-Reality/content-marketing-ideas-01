@@ -91,7 +91,7 @@ def post_ollama(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 def select_parameters(idea_content: str, context_content: str) -> Dict[str, str]:
     """First API call – ask the model to choose voice, piece type, etc."""
-    first_prompt = f"""Analyze the following topic research and select the most appropriate writing parameters.
+    first_prompt = f"""Analyze the following topic research and select the most appropriate writing parameters for content marketing.
 
 Use ONLY this JSON format for output (no other text):
 {{
@@ -103,6 +103,19 @@ Use ONLY this JSON format for output (no other text):
   "justification": "Explanation of why these choices were made",
   "pain_point": "Summary of the main pain point users are experiencing"
 }}
+
+Content Marketing Context:
+- This content is part of a content marketing strategy
+- Consider the marketing funnel position: Top of Funnel (TOFU), Middle of Funnel (MOFU), or Bottom of Funnel (BOFU)
+- TOFU: Awareness & Education - attract broad audience, answer general questions, rank for high-volume keywords
+- MOFU: Consideration & Comparison - nurture leads evaluating solutions
+- BOFU: Decision & Conversion - convert leads into customers
+- Content Marketing Best Practices:
+  - Focus on user pain points and benefits rather than product features
+  - Include clear calls-to-action where appropriate
+  - Optimize for search engines with relevant keywords
+  - Maintain consistent brand voice throughout
+  - Provide actionable insights that readers can apply immediately
 
 Writing style descriptions:
 New Yorker: {VOICE_DEFINITIONS["TheNewYorker"]}
@@ -119,8 +132,9 @@ Instructions:
 3. Select **primary goal** from: educate, persuade, announce, compare, troubleshoot
 4. Select **target audience** from: enterprise, public sector, academic, hobbyist
 5. Select **technical depth** from: low, med, high
-6. Provide a **justification** explaining why these specific choices were made
-7. Extract and summarize the main pain point that users are experiencing from the research content and URLs. Be very descriptive of the exact problems and pains, with specific examples gathered from the research. 
+6. Consider the marketing funnel position (TOFU/MOFU/BOFU) when making your selections - how does this content position itself in the customer journey?
+7. Provide a **justification** explaining why these specific choices were made, including how they align with the content marketing strategy and funnel position
+8. Extract and summarize the main pain point that users are experiencing from the research content and URLs. Be very descriptive of the exact problems and pains, with specific examples gathered from the research. 
 It is very important to have as much detail as possible so as to be able to address a solution specifically to the pain points you find, and not a generic solution.
 
 Output ONLY the JSON object above with your selections."""
