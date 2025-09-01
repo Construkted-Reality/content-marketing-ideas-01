@@ -6,8 +6,7 @@
 - Include **one concrete benefit or goal** the reader will achieve.  
   Example: “Reduce query latency by 40 % in under 5 minutes”.
 
-- If possible, embed a **measurable metric** (time, cost, percentage, dollar amount).  
-  Example: “Cut cloud spend by $2 K per month”.
+- If possible, keep the title word count under 15 words.
 
 - Keep the title **truthful and specific**.  
   • No click‑bait phrasing (e.g., “You won’t believe…”, “The secret to…”).  

@@ -32,6 +32,7 @@ SOURCE_FOLDER = pathlib.Path("blog_post_ideas")
 DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
 CONTEXT_FILE = pathlib.Path("context.md")
 TITLES_FILE = pathlib.Path("crafting_compelling_titles.md")
+COMPANY_OPERATION_FILE = pathlib.Path("company_operation.md")
 
 # Voice definitions (mirroring the associative array in the Bash script)
 VOICE_DEFINITIONS: Dict[str, str] = {
@@ -62,7 +63,7 @@ FORMATTING_RULES = (
     "- Do **not** use any tables, ASCII‑art tables, or Markdown tables. "
     "- Keep the output strictly in paragraph form (or simple bullet points if a list is needed). "
     "- Avoid other “grid‑like” structures; use prose instead. "
-    "Deliver a piece that fulfills the voice and purpose while respecting the formatting rules."
+    "- Deliver a piece that fulfills the voice and purpose while respecting the formatting rules."
 )
 
 # --- Helper functions ---------------------------------------------------------
@@ -152,6 +153,7 @@ def generate_blog_post(
     idea_content: str,
     context_content: str,
     titles_content: str,
+    company_operation_content: str,
     selected: Dict[str, str],
 ) -> str:
     """Second API call – generate the full blog post using the chosen parameters."""
@@ -160,25 +162,33 @@ def generate_blog_post(
     voice_prompt = f"Write in the voice of a seasoned journalist at {voice_content}"
 
     system_prompt = (
+        f"You are a content creator for Construkted Reality, tasked with writing a blog post. "
+        f"Your writing style is that of a seasoned journalist at {voice_content}. "
         f"Reasoning: high, extra context {context_content}. "
-        f"Writing Style should be: {voice_prompt}. "
+        f"Company operation details: {company_operation_content}. "
         f"Piece Type: {selected['piece_type']}. "
         f"Primary Goal: {selected['primary_goal']}. "
         f"Target Audience: {selected['target_audience']}. "
         f"Technical Depth: {selected['technical_depth']}. "
-        f"Follow the following formatting rules: {FORMATTING_RULES}. "
+        f"\n\n**Core Instructions**:\n"
+        f"- Mention our product, Construkted Reality, where it naturally fits as a solution to the problems discussed. Do not force it.\n"
+        f"- Do not fabricate information about how Construkted Reality works or its features.\n"
+        f"- For images, create numeric placeholders in the body of the post (e.g., [IMAGE 1], [IMAGE 2]). At the end of the article, create an 'Image Prompt Summary' section with detailed prompts for an image generation LLM for each placeholder.\n"
+        f"- Display all sources used in the response under a 'Sources' section.\n"
+        f"- Follow these formatting rules: {FORMATTING_RULES}"
     )
 
-    prompt = f"""Using Construkted Reality's content marketing strategy, create a full blog post using the following draft: {idea_content}. 
-Visit all URLs listed in the SOURCE section read their content carefully and use the content at the URLs to extract the pain points, and use the content to guide the writing of the blog post content. 
-Display the sources used in the response. 
-This article should focus on validating and suggesting solutions to the user pain points that are extracted from the URLs. 
-Mention our product Construkted Reality whenever appropriate, and how it could potentially provide a solution. 
-For images, create numeric placeholders in the body of the post, and at the bottom of the post create an **Image Prompt Summary** section where the detailed prompts specified. Image generation prompts will be used in an llm for image generation. 
-Do not use tables in your response. 
+    prompt = (
+        f"Using the provided research, write a full blog post. \n"
+        f"The primary goal is to validate and suggest solutions to the user pain points identified in the research.\n"
+        f"The secondary goal is to position Construkted Reality as the solution to the user pain point.\n"
+        f"**Article Research and Draft Content**:\n{idea_content}\n\n"
+        f"**Instructions**:\n"
+        f"1. Visit all URLs listed in the SOURCE section of the research. Use their content to deepen your understanding of the pain points.\n"
+        f"2. Craft a new, compelling title for the article using the following guidance: {titles_content}\n"
+        f"3. Write the full blog post, addressing the extracted pain points and integrating solutions."
+    )
 
-Change the article title by using all the context available, and use the title crafting guidance as follows: {titles_content}. 
-"""
 
     payload = {
         "model": DEFAULT_MODEL,
@@ -234,6 +244,8 @@ def main() -> None:
     # Load static auxiliary files once
     context_content = read_file(CONTEXT_FILE)
     titles_content = read_file(TITLES_FILE)
+    company_operation_content = read_file(COMPANY_OPERATION_FILE)
+
 
     for idx, idea_path in enumerate(sorted(SOURCE_FOLDER.glob("*.md")), start=1):
         print(f"[{idx}/{total_files}] Processing {idea_path.name}")
@@ -258,6 +270,7 @@ def main() -> None:
             idea_content,
             context_content,
             titles_content,
+            company_operation_content,
             selected,
         )
 
@@ -272,6 +285,7 @@ def main() -> None:
 - **Technical Depth**: {selected['technical_depth']}
 - **Justification**: {selected['justification']}
 - **Pain Point**: {selected['pain_point']}
+- **Company Operation Context**: {company_operation_content[:200]}...
 ---
 """
         full_content = response + metadata
