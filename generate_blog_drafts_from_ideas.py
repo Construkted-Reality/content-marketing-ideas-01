@@ -100,6 +100,7 @@ Use ONLY this JSON format for output (no other text):
   "primary_goal": "Your chosen primary goal (e.g., educate)",
   "target_audience": "Your chosen target audience (e.g., enterprise)",
   "technical_depth": "Your chosen technical depth (e.g., med)",
+  "marketing_post_type": "Your chosen marketing post type (e.g., educational)",
   "justification": "Explanation of why these choices were made",
   "pain_point": "Summary of the main pain point users are experiencing"
 }}
@@ -110,6 +111,14 @@ Content Marketing Context:
 - TOFU: Awareness & Education - attract broad audience, answer general questions, rank for high-volume keywords
 - MOFU: Consideration & Comparison - nurture leads evaluating solutions
 - BOFU: Decision & Conversion - convert leads into customers
+- Marketing Post Type Strategy: This defines the strategic positioning of the content within the customer journey. Choose from:
+  - Educational: For awareness and education (TOFU) - focus on answering general questions, providing foundational knowledge
+  - Comparison: For consideration and evaluation (MOFU) - highlight benefits vs competitors, feature comparisons  
+  - Conversion-focused: For decision-making and purchase (BOFU) - drive action, emphasize value and ROI
+  - Case Study: For trust-building at any stage - showcase real-world results and success stories
+  - Product Update: For awareness and conversion (TOFU/BOFU) - announce new features, improvements
+  - Standards/Policy Analysis: For thought leadership (TOFU) - industry insights, regulatory analysis
+  - News Reaction: For engagement (TOFU) - commentary on industry trends and developments
 - Content Marketing Best Practices:
   - Focus on user pain points and benefits rather than product features
   - Include clear calls-to-action where appropriate
@@ -132,9 +141,10 @@ Instructions:
 3. Select **primary goal** from: educate, persuade, announce, compare, troubleshoot
 4. Select **target audience** from: enterprise, public sector, academic, hobbyist
 5. Select **technical depth** from: low, med, high
-6. Consider the marketing funnel position (TOFU/MOFU/BOFU) when making your selections - how does this content position itself in the customer journey?
-7. Provide a **justification** explaining why these specific choices were made, including how they align with the content marketing strategy and funnel position
-8. Extract and summarize the main pain point that users are experiencing from the research content and URLs. Be very descriptive of the exact problems and pains, with specific examples gathered from the research. 
+6. Select **marketing post type** from: educational, comparison, conversion-focused, case study, product update, standards/policy analysis, news reaction
+7. Consider the marketing funnel position (TOFU/MOFU/BOFU) when making your selections - how does this content position itself in the customer journey?
+8. Provide a **justification** explaining why these specific choices were made, including how they align with the content marketing strategy and funnel position
+9. Extract and summarize the main pain point that users are experiencing from the research content and URLs. Be very descriptive of the exact problems and pains, with specific examples gathered from the research. 
 It is very important to have as much detail as possible so as to be able to address a solution specifically to the pain points you find, and not a generic solution.
 
 Output ONLY the JSON object above with your selections."""
@@ -276,7 +286,7 @@ def main() -> None:
         # Echo selected parameters (mirrors Bash script output)
         print("  Selected parameters:")
         #for key in ["voice", "piece_type", "primary_goal", "target_audience", "technical_depth", "justification", "pain_point"]:        
-        for key in ["voice", "piece_type", "primary_goal", "target_audience", "technical_depth"]:
+        for key in ["voice", "piece_type", "primary_goal", "target_audience", "technical_depth", "marketing_post_type"]:
             print(f"    {key.replace('_', ' ').title()}: {selected.get(key, '')}")
 
         # --- Second API call -----------------------------------------------
@@ -297,6 +307,7 @@ def main() -> None:
 - **Primary Goal**: {selected['primary_goal']}
 - **Target Audience**: {selected['target_audience']}
 - **Technical Depth**: {selected['technical_depth']}
+- **Marketing Post Type**: {selected['marketing_post_type']}
 - **Justification**: {selected['justification']}
 - **Pain Point**: {selected['pain_point']}
 - **Company Operation Context**: {company_operation_content[:200]}...
