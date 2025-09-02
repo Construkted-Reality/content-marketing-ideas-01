@@ -28,6 +28,7 @@ DEFAULT_MODEL = "gpt-oss-120b-CTX28k"
 
 SOURCE_FOLDER = pathlib.Path("blog_post_ideas")
 DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
+
 CONTEXT_FILE = pathlib.Path("context.md")
 TITLES_FILE = pathlib.Path("crafting_compelling_titles.md")
 COMPANY_OPERATION_FILE = pathlib.Path("company_operation.md")

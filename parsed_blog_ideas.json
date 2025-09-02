@@ -1,0 +1,323 @@
+[
+  {
+    "id": 1,
+    "title": "1. Why Your Photogrammetry Models Have Holes and How to Fill Them Properly",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/",
+      "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
+      "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "2. Solving the Dreaded \"Double Wall\" Effect in Your 3D Scans",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
+      "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
+      "https://www.youtube.com/watch?v=ZZut6f17Vtc"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "3. Why Your Phone Photos Aren't Working for Photogrammetry (And How to Fix It)",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.agisoft.com/forum/index.php?topic=10580.0",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11598270/",
+      "https://www.reddit.com/r/photogrammetry/comments/11qo1p1/photogrammetry_with_mobile_phone/",
+      "https://www.youtube.com/watch?v=VtRLU2K7gyM"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "4. Conquering Reflective and Shiny Surfaces in 3D Scanning",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.pointscan.co.uk/challenges-in-3d-laser-scanning/",
+      "https://www.wevolver.com/article/overcoming-the-challenges-of-3d-scanning",
+      "https://www.shining3d.com/3d-scanning-challenges-shiny-dark-colorful-",
+      "https://store.3dmakerpro.com/en-ca/blogs/school/top-10-3d-scanning-mistakes",
+      "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "5. Understanding Why Your Photos Don't Align and How to Force Better Results",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.reddit.com/r/photogrammetry/comments/1i4iffk/problems_with_reality_capture_newbie/",
+      "https://www.hammermissions.com/post/captured-vs-aligned-images-drone-photogrammetry",
+      "https://www.youtube.com/watch?v=2_ulJZTYJwA"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "6. Fixing Terrible UV Maps and Texture Baking Issues from Photogrammetry Models",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://blenderartists.org/t/photogrammetry-model-processing-mainly-uv-mapping-pains/686151",
+      "https://www.youtube.com/watch?v=I-lH2_Ca3Dw",
+      "https://forums.sketchup.com/t/projecting-textures-onto-3d-meshes-created-in-photogrammetry-software/113656",
+      "https://www.youtube.com/watch?v=C_RqdNbYOjE"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "7. Managing Massive File Sizes in Photogrammetry Projects",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://formlabs.com/blog/photogrammetry-guide-and-software-comparison/",
+      "https://www.reddit.com/r/photogrammetry/comments/jp2nj3/project_size_estimation/",
+      "https://deep3d.co.uk/2017/05/22/photogrammetry-managing-data/",
+      "https://www.aerotas.com/photogrammetry"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "8. Solving Color and Exposure Inconsistencies in Multi-Session Scans",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.cloudynights.com/topic/650850-photometric-color-calibration-having-difficulties/",
+      "https://docs.polyhaven.com/en/technical-standards/texture-color-calibration",
+      "https://www.youtube.com/watch?v=ZZut6f17Vtc",
+      "https://forum.dxo.com/t/cant-perform-color-calibration-due-to-clipping/36835"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "9. Automating Your Photogrammetry Workflow to Save Time and Reduce Errors",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://support.artec3d.com/hc/en-us/articles/115004078385-Automation-of-3D-scanning-and-processing",
+      "https://gomeasure3d.com/blog/automating-3d-scanning-process-need/",
+      "https://www.3d-scantech.com/product/autoscan-k-3d-system/"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "10. Quality Control Checklists: Ensuring Professional Results Every Time",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://help.alteia.com/photogrammetry/quality-checks-and-statistics",
+      "https://www.agisoftmetashape.com/how-to-perform-quality-checks-on-photogrammetry-projects-in-metashape/",
+      "https://www.photomodeler.com/pm-kb/getting-the-highest-possible-accuracy/"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "11. Drone Photogrammetry Alignment Problems: Why Your Aerial Images Won't Connect",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.hammermissions.com/post/captured-vs-aligned-images-drone-photogrammetry",
+      "https://enterprise-insights.dji.com/blog/ppk-post-processed-kinematics-workflow",
+      "https://www.reddit.com/r/photogrammetry/comments/131zrhi/metashape_does_not_correctly_align_drone_images/",
+      "https://www.youtube.com/watch?v=2_ulJZTYJwA"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "12. Dealing with Featureless and Repetitive Surfaces in Photogrammetry",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.reddit.com/r/photogrammetry/comments/1kgdjq7/photogrammetry_is_hard/",
+      "https://www.pix-pro.com/blog/photogrammetry-misconceptions",
+      "https://www.instructables.com/Shooting-for-Photogrammetry/",
+      "https://www.agisoft.com/forum/index.php?topic=10580.0"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "13. Mobile Phone Camera Settings That Actually Work for Photogrammetry",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11598270/",
+      "https://www.pix-pro.com/blog/photogrammetry-misconceptions",
+      "https://www.reddit.com/r/photogrammetry/comments/11qo1p1/photogrammetry_with_mobile_phone/",
+      "https://www.reddit.com/r/photogrammetry/comments/rn3fsv/any_tips_for_a_beginner/"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "14. Lighting Setups That Actually Improve Your 3D Scan Quality",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.photoneo.com/lighting-conditions-machine-vision/",
+      "https://support.artec3d.com/hc/en-us/articles/360005149174-Lighting-conditions-and-specific-3D-scanning-scenarios",
+      "https://www.instructables.com/Shooting-for-Photogrammetry/",
+      "https://www.youtube.com/watch?v=TQggSy3YJYU"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "15. Why Your 3D Model Looks Nothing Like Your Original Object (And How to Fix It)",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
+      "https://www.geodetic.com/basics-of-photogrammetry/",
+      "https://www.photomodeler.com/pm-kb/getting-the-highest-possible-accuracy/"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "16. Texture Baking Nightmares: When Your Photogrammetry Textures Turn Black",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.youtube.com/watch?v=C_RqdNbYOjE",
+      "https://www.youtube.com/watch?v=taBwyMWCnis",
+      "https://blenderartists.org/t/baking-problem/1405645",
+      "https://www.youtube.com/watch?v=aVD1ZsYUwz8"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "17. Combining Ground and Drone Photos Without Going Insane",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.youtube.com/watch?v=2_ulJZTYJwA",
+      "https://www.youtube.com/watch?v=idMY3X7ZvRY",
+      "https://forums.unrealengine.com/t/problem-about-the-3d-model-from-reality-capture/1183631"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "18. Project Planning That Prevents Photogrammetry Disasters",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://www.geodetic.com/basics-of-photogrammetry/",
+      "https://help.nira.app/hc/en-us/articles/32546401529499-Do-you-have-any-suggestions-for-creating-high-quality-photogrammetry-models",
+      "https://www.youtube.com/watch?v=6nFdKea7Xsw"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "19. Post-Processing Workflows That Don't Take Forever",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://forums.cgarchitect.com/topic/79902-photogrammetry-workflows/",
+      "https://gomeasure3d.com/blog/automating-3d-scanning-process-need/",
+      "https://blenderartists.org/t/photogrammetry-model-processing-mainly-uv-mapping-pains/686151",
+      "https://formlabs.com/blog/photogrammetry-guide-and-software-comparison/"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "20. Reality Capture Troubleshooting: When Everything Goes Wrong",
+    "pain_point": "",
+    "target_audience": "",
+    "content_details": "",
+    "urls": [
+      "https://forums.unrealengine.com/t/problem-about-the-3d-model-from-reality-capture/1183631",
+      "https://www.reddit.com/r/photogrammetry/comments/1804g7u/reality_capture_turntable_workflow_doesnt_align/",
+      "https://www.youtube.com/watch?v=ZZut6f17Vtc",
+      "https://www.youtube.com/watch?v=6nFdKea7Xsw",
+      "https://www.reddit.com/r/photogrammetry/comments/1f45oaf/what_am_i_doing_wrong/",
+      "https://www.reddit.com/r/blenderhelp/comments/10pgqfg/fixing_3d_photogrammetry_modeling_issues/",
+      "https://surphaser.com/blog/how-to-enhance-3d-scan-quality-post-processing-tips/",
+      "https://www.youtube.com/watch?v=ZZut6f17Vtc",
+      "https://www.agisoft.com/forum/index.php?topic=10580.0",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11598270/",
+      "https://www.reddit.com/r/photogrammetry/comments/11qo1p1/photogrammetry_with_mobile_phone/",
+      "https://www.youtube.com/watch?v=VtRLU2K7gyM",
+      "https://www.pointscan.co.uk/challenges-in-3d-laser-scanning/",
+      "https://www.wevolver.com/article/overcoming-the-challenges-of-3d-scanning",
+      "https://www.shining3d.com/3d-scanning-challenges-shiny-dark-colorful-",
+      "https://store.3dmakerpro.com/en-ca/blogs/school/top-10-3d-scanning-mistakes",
+      "https://www.reddit.com/r/photogrammetry/comments/1i4iffk/problems_with_reality_capture_newbie/",
+      "https://www.hammermissions.com/post/captured-vs-aligned-images-drone-photogrammetry",
+      "https://www.youtube.com/watch?v=2_ulJZTYJwA",
+      "https://blenderartists.org/t/photogrammetry-model-processing-mainly-uv-mapping-pains/686151",
+      "https://www.youtube.com/watch?v=I-lH2_Ca3Dw",
+      "https://forums.sketchup.com/t/projecting-textures-onto-3d-meshes-created-in-photogrammetry-software/113656",
+      "https://www.youtube.com/watch?v=C_RqdNbYOjE",
+      "https://formlabs.com/blog/photogrammetry-guide-and-software-comparison/",
+      "https://www.reddit.com/r/photogrammetry/comments/jp2nj3/project_size_estimation/",
+      "https://deep3d.co.uk/2017/05/22/photogrammetry-managing-data/",
+      "https://www.aerotas.com/photogrammetry",
+      "https://www.cloudynights.com/topic/650850-photometric-color-calibration-having-difficulties/",
+      "https://docs.polyhaven.com/en/technical-standards/texture-color-calibration",
+      "https://forum.dxo.com/t/cant-perform-color-calibration-due-to-clipping/36835",
+      "https://support.artec3d.com/hc/en-us/articles/115004078385-Automation-of-3D-scanning-and-processing",
+      "https://gomeasure3d.com/blog/automating-3d-scanning-process-need/",
+      "https://www.3d-scantech.com/product/autoscan-k-3d-system/",
+      "https://help.alteia.com/photogrammetry/quality-checks-and-statistics",
+      "https://www.agisoftmetashape.com/how-to-perform-quality-checks-on-photogrammetry-projects-in-metashape/",
+      "https://www.photomodeler.com/pm-kb/getting-the-highest-possible-accuracy/",
+      "https://enterprise-insights.dji.com/blog/ppk-post-processed-kinematics-workflow",
+      "https://www.reddit.com/r/photogrammetry/comments/131zrhi/metashape_does_not_correctly_align_drone_images/",
+      "https://www.reddit.com/r/photogrammetry/comments/1kgdjq7/photogrammetry_is_hard/",
+      "https://www.pix-pro.com/blog/photogrammetry-misconceptions",
+      "https://www.instructables.com/Shooting-for-Photogrammetry/",
+      "https://www.reddit.com/r/photogrammetry/comments/rn3fsv/any_tips_for_a_beginner/",
+      "https://www.photoneo.com/lighting-conditions-machine-vision/",
+      "https://support.artec3d.com/hc/en-us/articles/360005149174-Lighting-conditions-and-specific-3D-scanning-scenarios",
+      "https://www.youtube.com/watch?v=TQggSy3YJYU",
+      "https://www.geodetic.com/basics-of-photogrammetry/",
+      "https://www.youtube.com/watch?v=taBwyMWCnis",
+      "https://blenderartists.org/t/baking-problem/1405645",
+      "https://www.youtube.com/watch?v=aVD1ZsYUwz8",
+      "https://www.youtube.com/watch?v=idMY3X7ZvRY",
+      "https://forums.unrealengine.com/t/problem-about-the-3d-model-from-reality-capture/1183631",
+      "https://help.nira.app/hc/en-us/articles/32546401529499-Do-you-have-any-suggestions-for-creating-high-quality-photogrammetry-models",
+      "https://www.youtube.com/watch?v=6nFdKea7Xsw",
+      "https://forums.cgarchitect.com/topic/79902-photogrammetry-workflows/",
+      "https://www.reddit.com/r/photogrammetry/comments/1804g7u/reality_capture_turntable_workflow_doesnt_align/",
+      "https://www.flightsim.com/forums/topic/47415-why-its-me-the-photogrammetry-problem/",
+      "https://3dpointshot.com/blog/9-common-problems-with-3d-scanning-you-need-to-know",
+      "https://www.3dscanforum.org/viewforum.php?f=18",
+      "https://www.reddit.com/r/photogrammetry/",
+      "https://surphaser.com/blog/troubleshooting-common-3d-scanner-issues/",
+      "https://www.reddit.com/r/3dsmax/comments/m70hma/topology_problem_with_3d_scanned_mesh/",
+      "https://discourse.mcneel.com/t/points-to-mesh-with-quad-faces-issues-with-current-method-advise-request/71604",
+      "https://www.reddit.com/r/photogrammetry/comments/1h4j6x0/agisoft_metashape_trouble_with_building_textures/",
+      "https://www.comsol.com/support/learning-center/article/Repairing-and-Improving-Imported-Meshes-from-3D-Scans-64831",
+      "http://www.headus.com/phpbb/viewtopic.php?t=844\\&sid=949d58762824bf97dddf5d2cad37a5a2",
+      "https://isprs-archives.copernicus.org/articles/XLVIII-2-2024/415/2024/isprs-archives-XLVIII-2-2024-415-2024.pdf",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9400401/",
+      "https://www.pix-pro.com/blog/photogrammetry-limits",
+      "https://qviro.com/blog/applications-of-3d-scanners-in-automation-2025/",
+      "https://ar-code.com/blog/how-to-manage-the-file-size-limitation-for-3d-models-on-ar-code",
+      "https://pixinsight.com/forum/index.php?threads%2Fhuge-problems-and-inconsistencies-with-photometric-color-calibration.15148%2F",
+      "https://www.reddit.com/r/AskAstrophotography/comments/11kb6ns/siril_photometric_color_calibration_issues/"
+    ]
+  }
+]
