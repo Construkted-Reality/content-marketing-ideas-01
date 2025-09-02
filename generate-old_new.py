@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-""" 
+"""
+Python translation of `generate_blog_drafts_from_ideas.sh`.
+
 This script:
 1. Reads markdown idea files from `blog_post_ideas/`.
 2. Calls an OLLAMA API twice per idea:
@@ -31,8 +33,6 @@ DESTINATION_FOLDER = pathlib.Path("blog_post_drafts")
 CONTEXT_FILE = pathlib.Path("context.md")
 TITLES_FILE = pathlib.Path("crafting_compelling_titles.md")
 COMPANY_OPERATION_FILE = pathlib.Path("company_operation.md")
-
-CONTENT_MARKETING_GUIDANCE_FILE = pathlib.Path("content_marketing_guidance.md")
 
 # Voice definitions (mirroring the associative array in the Bash script)
 VOICE_DEFINITIONS: Dict[str, str] = {
@@ -89,7 +89,7 @@ def post_ollama(payload: Dict[str, Any]) -> Dict[str, Any]:
         sys.exit(1)
 
 
-def select_parameters(idea_content: str, context_content: str, content_marketing_guidance_content: str) -> Dict[str, str]:
+def select_parameters(idea_content: str, context_content: str) -> Dict[str, str]:
     """First API call – ask the model to choose voice, piece type, etc."""
     first_prompt = f"""Analyze the following topic research and select the most appropriate writing parameters for content marketing.
 
@@ -97,19 +97,13 @@ Use ONLY this JSON format for output (no other text):
 {{
   "voice": "Your chosen voice option (e.g., TheNewYorker)",
   "piece_type": "Your chosen piece type (e.g., explainer)",
-  "marketing_post_type": "Your chosen marketing post type (e.g., educational)",
   "primary_goal": "Your chosen primary goal (e.g., educate)",
   "target_audience": "Your chosen target audience (e.g., enterprise)",
   "technical_depth": "Your chosen technical depth (e.g., med)",
+  "marketing_post_type": "Your chosen marketing post type (e.g., educational)",
   "justification": "Explanation of why these choices were made",
   "pain_point": "Summary of the main pain point users are experiencing"
 }}
-
-Content Marketing Context:
-{content_marketing_guidance_content}
-
-Content Marketing Context:
-{content_marketing_guidance_content}
 
 Content Marketing Context:
 - This content is part of a content marketing strategy
@@ -117,6 +111,14 @@ Content Marketing Context:
 - TOFU: Awareness & Education - attract broad audience, answer general questions, rank for high-volume keywords
 - MOFU: Consideration & Comparison - nurture leads evaluating solutions
 - BOFU: Decision & Conversion - convert leads into customers
+- Marketing Post Type Strategy: This defines the strategic positioning of the content within the customer journey. Choose from:
+  - Educational: For awareness and education (TOFU) - focus on answering general questions, providing foundational knowledge
+  - Comparison: For consideration and evaluation (MOFU) - highlight benefits vs competitors, feature comparisons  
+  - Conversion-focused: For decision-making and purchase (BOFU) - drive action, emphasize value and ROI
+  - Case Study: For trust-building at any stage - showcase real-world results and success stories
+  - Product Update: For awareness and conversion (TOFU/BOFU) - announce new features, improvements
+  - Standards/Policy Analysis: For thought leadership (TOFU) - industry insights, regulatory analysis
+  - News Reaction: For engagement (TOFU) - commentary on industry trends and developments
 - Content Marketing Best Practices:
   - Focus on user pain points and benefits rather than product features
   - Include clear calls-to-action where appropriate
@@ -136,19 +138,13 @@ Visit all URLs listed in the SOURCE section, read their content carefully and us
 Instructions:
 1. Analyze the topic and determine which of the three **voices** best fits
 2. Select appropriate **piece type** from: explainer, tutorial, methods deep dive, case study, product update, standards/policy analysis, news reaction
-3. Select **marketing_post_type** from the Content Marketing Context guidelines:
-   - Educational (TOFU): For awareness and education - focus on answering general questions, providing foundational knowledge
-   - Comparison (MOFU): For consideration and evaluation - highlight benefits vs competitors, feature comparisons  
-   - Conversion-focused (BOFU): For decision-making and purchase - drive action, emphasize value and ROI
-   - Case Study: For trust-building at any stage - showcase real-world results and success stories
-   - Product Update: For awareness and conversion (TOFU/BOFU) - announce new features, improvements
-   - Standards/Policy Analysis: For thought leadership (TOFU) - industry insights, regulatory analysis
-   - News Reaction: For engagement (TOFU) - commentary on industry trends and developments
-4. Select **primary goal** from: educate, persuade, announce, compare, troubleshoot
-5. Select **target audience** from: enterprise, public sector, academic, hobbyist
-6. Select **technical depth** from: low, med, high
-7. Provide a **justification** explaining why these specific choices were made
-8. Extract and summarize the main pain point that users are experiencing from the research content and URLs. Be very descriptive of the exact problems and pains, with specific examples gathered from the research. 
+3. Select **primary goal** from: educate, persuade, announce, compare, troubleshoot
+4. Select **target audience** from: enterprise, public sector, academic, hobbyist
+5. Select **technical depth** from: low, med, high
+6. Select **marketing post type** from: educational, comparison, conversion-focused, case study, product update, standards/policy analysis, news reaction
+7. Consider the marketing funnel position (TOFU/MOFU/BOFU) when making your selections - how does this content position itself in the customer journey?
+8. Provide a **justification** explaining why these specific choices were made, including how they align with the content marketing strategy and funnel position
+9. Extract and summarize the main pain point that users are experiencing from the research content and URLs. Be very descriptive of the exact problems and pains, with specific examples gathered from the research. 
 It is very important to have as much detail as possible so as to be able to address a solution specifically to the pain points you find, and not a generic solution.
 
 Output ONLY the JSON object above with your selections."""
@@ -182,7 +178,6 @@ def generate_blog_post(
     context_content: str,
     titles_content: str,
     company_operation_content: str,
-    content_marketing_guidance_content: str,  # New parameter
     selected: Dict[str, str],
 ) -> str:
     """Second API call – generate the full blog post using the chosen parameters."""
@@ -191,11 +186,9 @@ def generate_blog_post(
     voice_prompt = f"Write in the voice of a seasoned journalist at {voice_content}"
 
     system_prompt = (
-        f"Reasoning: high "
         f"You are a content creator for Construkted Reality, tasked with writing a blog post. "
         f"Your writing style is that of a seasoned journalist at {voice_content}. "
-        f"Content Marketing Context: {content_marketing_guidance_content}. "
-        f"Extra context {context_content}. "
+        f"Reasoning: high, extra context {context_content}. "
         f"Company operation details: {company_operation_content}. "
         f"Piece Type: {selected['piece_type']}. "
         f"Primary Goal: {selected['primary_goal']}. "
@@ -283,8 +276,7 @@ def main() -> None:
         idea_content = read_file(idea_path)
 
         # --- First API call -------------------------------------------------
-        content_marketing_guidance_content = read_file(CONTENT_MARKETING_GUIDANCE_FILE)
-        selected = select_parameters(idea_content, context_content, content_marketing_guidance_content)
+        selected = select_parameters(idea_content, context_content)
 
         # Verify we got a voice; otherwise skip
         if not selected.get("voice"):
@@ -294,17 +286,15 @@ def main() -> None:
         # Echo selected parameters (mirrors Bash script output)
         print("  Selected parameters:")
         #for key in ["voice", "piece_type", "primary_goal", "target_audience", "technical_depth", "justification", "pain_point"]:        
-        for key in ["voice", "piece_type", "marketing_post_type", "primary_goal", "target_audience", "technical_depth"]:
+        for key in ["voice", "piece_type", "primary_goal", "target_audience", "technical_depth", "marketing_post_type"]:
             print(f"    {key.replace('_', ' ').title()}: {selected.get(key, '')}")
 
         # --- Second API call -----------------------------------------------
-        content_marketing_guidance_content = read_file(CONTENT_MARKETING_GUIDANCE_FILE)
         response = generate_blog_post(
             idea_content,
             context_content,
             titles_content,
             company_operation_content,
-            content_marketing_guidance_content,
             selected,
         )
 
@@ -314,10 +304,10 @@ def main() -> None:
 ### Content Creation Metadata
 - **Voice**: {selected['voice']}
 - **Piece Type**: {selected['piece_type']}
-- **Marketing Post Type**: {selected['marketing_post_type']}
 - **Primary Goal**: {selected['primary_goal']}
 - **Target Audience**: {selected['target_audience']}
 - **Technical Depth**: {selected['technical_depth']}
+- **Marketing Post Type**: {selected['marketing_post_type']}
 - **Justification**: {selected['justification']}
 - **Pain Point**: {selected['pain_point']}
 - **Company Operation Context**: {company_operation_content[:200]}...
