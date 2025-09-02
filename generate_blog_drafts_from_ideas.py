@@ -108,6 +108,22 @@ Use ONLY this JSON format for output (no other text):
 Content Marketing Context:
 {content_marketing_guidance_content}
 
+Content Marketing Context:
+{content_marketing_guidance_content}
+
+Content Marketing Context:
+- This content is part of a content marketing strategy
+- Consider the marketing funnel position: Top of Funnel (TOFU), Middle of Funnel (MOFU), or Bottom of Funnel (BOFU)
+- TOFU: Awareness & Education - attract broad audience, answer general questions, rank for high-volume keywords
+- MOFU: Consideration & Comparison - nurture leads evaluating solutions
+- BOFU: Decision & Conversion - convert leads into customers
+- Content Marketing Best Practices:
+  - Focus on user pain points and benefits rather than product features
+  - Include clear calls-to-action where appropriate
+  - Optimize for search engines with relevant keywords
+  - Maintain consistent brand voice throughout
+  - Provide actionable insights that readers can apply immediately
+
 Writing style descriptions:
 New Yorker: {VOICE_DEFINITIONS["TheNewYorker"]}
 The Atlantic: {VOICE_DEFINITIONS["TheAtlantic"]}
